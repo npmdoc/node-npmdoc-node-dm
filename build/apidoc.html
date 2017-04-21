@@ -1,0 +1,1519 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/helios1138/node-dm"
+
+    >node-dm (v2.1.1)</a>
+</h1>
+<h4>Asynchronous Dependency Injection Manager for Node.JS</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-dm">module node-dm</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-dm.container">
+            function <span class="apidocSignatureSpan">node-dm.</span>container
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-dm.dependency">
+            function <span class="apidocSignatureSpan">node-dm.</span>dependency
+            <span class="apidocSignatureSpan">(container, name)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-dm.manager">
+            function <span class="apidocSignatureSpan">node-dm.</span>manager
+            <span class="apidocSignatureSpan">(container)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-dm.</span>_config</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-dm.</span>_container</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-dm.</span>container.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-dm.</span>dependency.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-dm.</span>manager.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-dm.container">module node-dm.container</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-dm.container.container">
+            function <span class="apidocSignatureSpan">node-dm.</span>container
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-dm.container.prototype">module node-dm.container.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-dm.container.prototype._resolveAsArray">
+            function <span class="apidocSignatureSpan">node-dm.container.prototype.</span>_resolveAsArray
+            <span class="apidocSignatureSpan">(dependencyNames)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-dm.container.prototype._resolveAsObject">
+            function <span class="apidocSignatureSpan">node-dm.container.prototype.</span>_resolveAsObject
+            <span class="apidocSignatureSpan">(dependencyNames)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-dm.container.prototype.get">
+            function <span class="apidocSignatureSpan">node-dm.container.prototype.</span>get
+            <span class="apidocSignatureSpan">(name)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-dm.container.prototype.getAll">
+            function <span class="apidocSignatureSpan">node-dm.container.prototype.</span>getAll
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-dm.container.prototype.resolve">
+            function <span class="apidocSignatureSpan">node-dm.container.prototype.</span>resolve
+            <span class="apidocSignatureSpan">(dependencyNames)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-dm.dependency">module node-dm.dependency</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-dm.dependency.dependency">
+            function <span class="apidocSignatureSpan">node-dm.</span>dependency
+            <span class="apidocSignatureSpan">(container, name)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-dm.dependency.prototype">module node-dm.dependency.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-dm.dependency.prototype._checkForCircularDependencies">
+            function <span class="apidocSignatureSpan">node-dm.dependency.prototype.</span>_checkForCircularDependencies
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-dm.dependency.prototype._getInstantiatedPromise">
+            function <span class="apidocSignatureSpan">node-dm.dependency.prototype.</span>_getInstantiatedPromise
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-dm.dependency.prototype._instantiate">
+            function <span class="apidocSignatureSpan">node-dm.dependency.prototype.</span>_instantiate
+            <span class="apidocSignatureSpan">(source, dependencies)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-dm.dependency.prototype._instantiateFromClass">
+            function <span class="apidocSignatureSpan">node-dm.dependency.prototype.</span>_instantiateFromClass
+            <span class="apidocSignatureSpan">(constructor, dependencies)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-dm.dependency.prototype._instantiateFromFactory">
+            function <span class="apidocSignatureSpan">node-dm.dependency.prototype.</span>_instantiateFromFactory
+            <span class="apidocSignatureSpan">(factory, dependencies)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-dm.dependency.prototype.getDependencies">
+            function <span class="apidocSignatureSpan">node-dm.dependency.prototype.</span>getDependencies
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-dm.dependency.prototype.getDependencyNames">
+            function <span class="apidocSignatureSpan">node-dm.dependency.prototype.</span>getDependencyNames
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-dm.dependency.prototype.getName">
+            function <span class="apidocSignatureSpan">node-dm.dependency.prototype.</span>getName
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-dm.dependency.prototype.getSourcePromise">
+            function <span class="apidocSignatureSpan">node-dm.dependency.prototype.</span>getSourcePromise
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-dm.dependency.prototype.isResolved">
+            function <span class="apidocSignatureSpan">node-dm.dependency.prototype.</span>isResolved
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-dm.dependency.prototype.provide">
+            function <span class="apidocSignatureSpan">node-dm.dependency.prototype.</span>provide
+            <span class="apidocSignatureSpan">(type, value, dependencyNames)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-dm.dependency.prototype.resolve">
+            function <span class="apidocSignatureSpan">node-dm.dependency.prototype.</span>resolve
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-dm.manager">module node-dm.manager</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-dm.manager.manager">
+            function <span class="apidocSignatureSpan">node-dm.</span>manager
+            <span class="apidocSignatureSpan">(container)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-dm.manager.prototype">module node-dm.manager.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-dm.manager.prototype.class">
+            function <span class="apidocSignatureSpan">node-dm.manager.prototype.</span>class
+            <span class="apidocSignatureSpan">(name, constructor, dependencyNames)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-dm.manager.prototype.config">
+            function <span class="apidocSignatureSpan">node-dm.manager.prototype.</span>config
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-dm.manager.prototype.factory">
+            function <span class="apidocSignatureSpan">node-dm.manager.prototype.</span>factory
+            <span class="apidocSignatureSpan">(name, factory, dependencyNames)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-dm.manager.prototype.object">
+            function <span class="apidocSignatureSpan">node-dm.manager.prototype.</span>object
+            <span class="apidocSignatureSpan">(dependencyNames)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-dm.manager.prototype.provide">
+            function <span class="apidocSignatureSpan">node-dm.manager.prototype.</span>provide
+            <span class="apidocSignatureSpan">(name, type, value, dependencyNames)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-dm.manager.prototype.resolve">
+            function <span class="apidocSignatureSpan">node-dm.manager.prototype.</span>resolve
+            <span class="apidocSignatureSpan">(dependencyNames)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-dm.manager.prototype.run">
+            function <span class="apidocSignatureSpan">node-dm.manager.prototype.</span>run
+            <span class="apidocSignatureSpan">(dependencyName)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-dm.manager.prototype.value">
+            function <span class="apidocSignatureSpan">node-dm.manager.prototype.</span>value
+            <span class="apidocSignatureSpan">(name, value)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-dm" id="apidoc.module.node-dm">module node-dm</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-dm.container" id="apidoc.element.node-dm.container">
+        function <span class="apidocSignatureSpan">node-dm.</span>container
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Container() {
+<span class="apidocCodeCommentSpan">  /**
+   * @type {Object.&#x3c;string, Dependency&#x3e;}
+   * @private
+   */
+</span>  this._dependencies = {};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-dm.dependency" id="apidoc.element.node-dm.dependency">
+        function <span class="apidocSignatureSpan">node-dm.</span>dependency
+        <span class="apidocSignatureSpan">(container, name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Dependency(container, name) {
+  this._container = container;
+  this._name = name;
+
+  this._type = null;
+  this._depends = [];
+
+  this._resolve = null;
+  this._isResolved = false;
+
+  this._sourcePromise = new Promise(function (resolve) { this._resolve = resolve; }.bind(this));
+  this._instantiatedPromise = null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-dm.manager" id="apidoc.element.node-dm.manager">
+        function <span class="apidocSignatureSpan">node-dm.</span>manager
+        <span class="apidocSignatureSpan">(container)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Manager(container) {
+  this._container = container;
+  this._config = {
+    dependencyTimeout: 2500
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-dm.container" id="apidoc.module.node-dm.container">module node-dm.container</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-dm.container.container" id="apidoc.element.node-dm.container.container">
+        function <span class="apidocSignatureSpan">node-dm.</span>container
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Container() {
+<span class="apidocCodeCommentSpan">  /**
+   * @type {Object.&#x3c;string, Dependency&#x3e;}
+   * @private
+   */
+</span>  this._dependencies = {};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-dm.container.prototype" id="apidoc.module.node-dm.container.prototype">module node-dm.container.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-dm.container.prototype._resolveAsArray" id="apidoc.element.node-dm.container.prototype._resolveAsArray">
+        function <span class="apidocSignatureSpan">node-dm.container.prototype.</span>_resolveAsArray
+        <span class="apidocSignatureSpan">(dependencyNames)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_resolveAsArray = function (dependencyNames) {
+  return Promise.all(dependencyNames.map(function (name) {
+    return this.get(name).resolve();
+  }.bind(this)));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+/**
+* @param {string[]|Object.&#x3c;string, *&#x3e;} dependencyNames
+* @returns {Promise}
+*/
+Container.prototype.resolve = function (dependencyNames) {
+ return Array.isArray(dependencyNames) ?
+   this.<span class="apidocCodeKeywordSpan">_resolveAsArray</span>(dependencyNames) :
+   this._resolveAsObject(dependencyNames);
+};
+
+/**
+* @param {string[]} dependencyNames
+* @returns {Promise}
+* @private
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-dm.container.prototype._resolveAsObject" id="apidoc.element.node-dm.container.prototype._resolveAsObject">
+        function <span class="apidocSignatureSpan">node-dm.container.prototype.</span>_resolveAsObject
+        <span class="apidocSignatureSpan">(dependencyNames)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_resolveAsObject = function (dependencyNames) {
+  var names = Object.keys(dependencyNames);
+
+  return this
+    ._resolveAsArray(names)
+    .then(function (dependencies) {
+      var obj = {};
+
+      dependencies.forEach(function (dependency, i) {
+        obj[names[i]] = dependency;
+      }.bind(this));
+
+      return obj;
+    }.bind(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+/**
+* @param {string[]|Object.&#x3c;string, *&#x3e;} dependencyNames
+* @returns {Promise}
+*/
+Container.prototype.resolve = function (dependencyNames) {
+ return Array.isArray(dependencyNames) ?
+   this._resolveAsArray(dependencyNames) :
+   this.<span class="apidocCodeKeywordSpan">_resolveAsObject</span>(dependencyNames);
+};
+
+/**
+* @param {string[]} dependencyNames
+* @returns {Promise}
+* @private
+*/
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-dm.container.prototype.get" id="apidoc.element.node-dm.container.prototype.get">
+        function <span class="apidocSignatureSpan">node-dm.container.prototype.</span>get
+        <span class="apidocSignatureSpan">(name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">get = function (name) {
+  if (typeof this._dependencies[name] === &#x27;undefined&#x27;) {
+    this._dependencies[name] = new Dependency(this, name);
+  }
+
+  return this._dependencies[name];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+/**
+* @param {string[]} dependencyNames
+* @returns {Promise}
+* @private
+*/
+Container.prototype._resolveAsArray = function (dependencyNames) {
+ return Promise.all(dependencyNames.map(function (name) {
+   return this.<span class="apidocCodeKeywordSpan">get</span>(name).resolve();
+ }.bind(this)));
+};
+
+/**
+* @param {Object.&#x3c;string, *&#x3e;} dependencyNames
+* @returns {Promise}
+* @private
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-dm.container.prototype.getAll" id="apidoc.element.node-dm.container.prototype.getAll">
+        function <span class="apidocSignatureSpan">node-dm.container.prototype.</span>getAll
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getAll = function () {
+  var values = [];
+
+  for (var key in this._dependencies) {
+    if (this._dependencies.hasOwnProperty(key)) {
+      values.push(this._dependencies[key]);
+    }
+  }
+
+  return values;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  else {
+    return new Promise(function (resolve, reject) {
+      this._container.resolve(dependencyNames).then(resolve, reject);
+
+      setTimeout(
+        function () {
+var unresolvedNames = this._container
+  .<span class="apidocCodeKeywordSpan">getAll</span>()
+  .filter(function (dependency) { return !dependency.isResolved(); })
+  .map(function (dependency) { return dependency.getName(); });
+
+if (unresolvedNames.length === 1) {
+  reject(new Error(
+    &#x27;Dependency &#x22;&#x27; +
+    unresolvedNames[0] +
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-dm.container.prototype.resolve" id="apidoc.element.node-dm.container.prototype.resolve">
+        function <span class="apidocSignatureSpan">node-dm.container.prototype.</span>resolve
+        <span class="apidocSignatureSpan">(dependencyNames)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">resolve = function (dependencyNames) {
+  return Array.isArray(dependencyNames) ?
+    this._resolveAsArray(dependencyNames) :
+    this._resolveAsObject(dependencyNames);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+dm.class(&#x27;parser&#x27;, Parser);
+```
+
+you can also just request dependencies anywhere in the code like this:
+
+```js
+dm.<span class="apidocCodeKeywordSpan">resolve</span>([&#x27;db&#x27;, &#x27;config&#x27;, &#x27;pi&#x27;])
+	.then(function(result){
+		/* result is an array of dependencies */
+		var db = result[0],
+			config = result[1],
+			pi = result[2];
+	});
+```
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-dm.dependency" id="apidoc.module.node-dm.dependency">module node-dm.dependency</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-dm.dependency.dependency" id="apidoc.element.node-dm.dependency.dependency">
+        function <span class="apidocSignatureSpan">node-dm.</span>dependency
+        <span class="apidocSignatureSpan">(container, name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Dependency(container, name) {
+  this._container = container;
+  this._name = name;
+
+  this._type = null;
+  this._depends = [];
+
+  this._resolve = null;
+  this._isResolved = false;
+
+  this._sourcePromise = new Promise(function (resolve) { this._resolve = resolve; }.bind(this));
+  this._instantiatedPromise = null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-dm.dependency.prototype" id="apidoc.module.node-dm.dependency.prototype">module node-dm.dependency.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-dm.dependency.prototype._checkForCircularDependencies" id="apidoc.element.node-dm.dependency.prototype._checkForCircularDependencies">
+        function <span class="apidocSignatureSpan">node-dm.dependency.prototype.</span>_checkForCircularDependencies
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_checkForCircularDependencies = function () {
+  var link           = [this.getName()],
+      alreadyChecked = [];
+
+  function checkIfDependencyIsSelf(dependency, subDependencies) {
+    return Promise.all(subDependencies.map(function (subDependency) {
+      link.push(subDependency.getName());
+
+      if (alreadyChecked.indexOf(subDependency) &#x3e;= 0) {
+        return;
+      }
+
+      alreadyChecked.push(subDependency);
+
+      if (subDependency === dependency) {
+        throw new Error(
+          &#x27;Circular dependency found: &#x27; +
+          link
+            .map(function (part) { return &#x27;&#x22;&#x27; + part + &#x27;&#x22;&#x27;; })
+            .join(&#x27; &#x3c; &#x27;)
+        );
+      }
+      else {
+        return checkThirdLevelDependencies(dependency, subDependency);
+      }
+    }));
+  }
+
+  function checkThirdLevelDependencies(dependency, subDependency) {
+    return subDependency
+      .getDependencies()
+      .then(function (subDependencies) {
+        return checkIfDependencyIsSelf(dependency, subDependencies);
+      });
+  }
+
+  return checkThirdLevelDependencies(this, this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @returns {Promise}
+ * @private
+ */
+Dependency.prototype._getInstantiatedPromise = function () {
+  return Promise
+    .all([
+      this._sourcePromise,
+      this.<span class="apidocCodeKeywordSpan">_checkForCircularDependencies</span>()
+    ])
+    .then(function (result) {
+      return Promise.all([result[0], this._container.resolve(this._depends)]);
+    }.bind(this))
+    .then(function (result) { return this._instantiate(result[0], result[1]); }.bind(this));
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-dm.dependency.prototype._getInstantiatedPromise" id="apidoc.element.node-dm.dependency.prototype._getInstantiatedPromise">
+        function <span class="apidocSignatureSpan">node-dm.dependency.prototype.</span>_getInstantiatedPromise
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_getInstantiatedPromise = function () {
+  return Promise
+    .all([
+      this._sourcePromise,
+      this._checkForCircularDependencies()
+    ])
+    .then(function (result) {
+      return Promise.all([result[0], this._container.resolve(this._depends)]);
+    }.bind(this))
+    .then(function (result) { return this._instantiate(result[0], result[1]); }.bind(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+/**
+* @returns {Promise}
+*/
+Dependency.prototype.resolve = function () {
+ if (!this._instantiatedPromise) {
+   this._instantiatedPromise = this.<span class="apidocCodeKeywordSpan">_getInstantiatedPromise</span>();
+ }
+
+ return this._instantiatedPromise;
+};
+
+/**
+* @returns {Promise}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-dm.dependency.prototype._instantiate" id="apidoc.element.node-dm.dependency.prototype._instantiate">
+        function <span class="apidocSignatureSpan">node-dm.dependency.prototype.</span>_instantiate
+        <span class="apidocSignatureSpan">(source, dependencies)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_instantiate = function (source, dependencies) {
+  if (this._type === &#x27;value&#x27;) {
+    return source;
+  }
+  else if (this._type === &#x27;class&#x27;) {
+    return this._instantiateFromClass(source, dependencies);
+  }
+  else if (this._type === &#x27;factory&#x27;) {
+    return this._instantiateFromFactory(source, dependencies);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   .all([
+     this._sourcePromise,
+     this._checkForCircularDependencies()
+   ])
+   .then(function (result) {
+     return Promise.all([result[0], this._container.resolve(this._depends)]);
+   }.bind(this))
+   .then(function (result) { return this.<span class="apidocCodeKeywordSpan">_instantiate</span>(result[0], result[1]); }.bind(this
+));
+};
+
+/**
+* @param {*} source
+* @param {Array|Object} dependencies
+* @returns {*}
+* @private
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-dm.dependency.prototype._instantiateFromClass" id="apidoc.element.node-dm.dependency.prototype._instantiateFromClass">
+        function <span class="apidocSignatureSpan">node-dm.dependency.prototype.</span>_instantiateFromClass
+        <span class="apidocSignatureSpan">(constructor, dependencies)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_instantiateFromClass = function (constructor, dependencies) {
+  var dependencyNames = this._depends;
+
+  var F = Array.isArray(dependencyNames) ?
+    constructor.bind.apply(constructor, [null].concat(dependencies)) :
+    constructor.bind(null, dependencies);
+
+  return new F();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @private
+ */
+Dependency.prototype._instantiate = function (source, dependencies) {
+  if (this._type === &#x27;value&#x27;) {
+    return source;
+  }
+  else if (this._type === &#x27;class&#x27;) {
+    return this.<span class="apidocCodeKeywordSpan">_instantiateFromClass</span>(source, dependencies);
+  }
+  else if (this._type === &#x27;factory&#x27;) {
+    return this._instantiateFromFactory(source, dependencies);
+  }
+};
+
+/**
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-dm.dependency.prototype._instantiateFromFactory" id="apidoc.element.node-dm.dependency.prototype._instantiateFromFactory">
+        function <span class="apidocSignatureSpan">node-dm.dependency.prototype.</span>_instantiateFromFactory
+        <span class="apidocSignatureSpan">(factory, dependencies)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_instantiateFromFactory = function (factory, dependencies) {
+  return Array.isArray(this._depends) ?
+    factory.apply(null, dependencies) :
+    factory.call(null, dependencies);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ if (this._type === &#x27;value&#x27;) {
+   return source;
+ }
+ else if (this._type === &#x27;class&#x27;) {
+   return this._instantiateFromClass(source, dependencies);
+ }
+ else if (this._type === &#x27;factory&#x27;) {
+   return this.<span class="apidocCodeKeywordSpan">_instantiateFromFactory</span>(source, dependencies);
+ }
+};
+
+/**
+* @param {Function} constructor
+* @param {Array|Object} dependencies
+* @returns {Object}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-dm.dependency.prototype.getDependencies" id="apidoc.element.node-dm.dependency.prototype.getDependencies">
+        function <span class="apidocSignatureSpan">node-dm.dependency.prototype.</span>getDependencies
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getDependencies = function () {
+  return Promise.all(
+    this.getDependencyNames().map(function (name) {
+      var dependency = this._container.get(name);
+      return dependency
+        .getSourcePromise()
+        .then(function () { return dependency; });
+    }.bind(this))
+  );
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        return checkThirdLevelDependencies(dependency, subDependency);
+      }
+    }));
+  }
+
+  function checkThirdLevelDependencies(dependency, subDependency) {
+    return subDependency
+      .<span class="apidocCodeKeywordSpan">getDependencies</span>()
+      .then(function (subDependencies) {
+        return checkIfDependencyIsSelf(dependency, subDependencies);
+      });
+  }
+
+  return checkThirdLevelDependencies(this, this);
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-dm.dependency.prototype.getDependencyNames" id="apidoc.element.node-dm.dependency.prototype.getDependencyNames">
+        function <span class="apidocSignatureSpan">node-dm.dependency.prototype.</span>getDependencyNames
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getDependencyNames = function () {
+  return Array.isArray(this._depends) ? this._depends : Object.keys(this._depends);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+/**
+ * @returns {Promise}
+ */
+Dependency.prototype.getDependencies = function () {
+  return Promise.all(
+    this.<span class="apidocCodeKeywordSpan">getDependencyNames</span>().map(function (name) {
+      var dependency = this._container.get(name);
+      return dependency
+        .getSourcePromise()
+        .then(function () { return dependency; });
+    }.bind(this))
+  );
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-dm.dependency.prototype.getName" id="apidoc.element.node-dm.dependency.prototype.getName">
+        function <span class="apidocSignatureSpan">node-dm.dependency.prototype.</span>getName
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getName = function () {
+  return this._name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+/**
+ * @returns {Promise}
+ * @private
+ */
+Dependency.prototype._checkForCircularDependencies = function () {
+  var link           = [this.<span class="apidocCodeKeywordSpan">getName</span>()],
+alreadyChecked = [];
+
+  function checkIfDependencyIsSelf(dependency, subDependencies) {
+    return Promise.all(subDependencies.map(function (subDependency) {
+link.push(subDependency.getName());
+
+if (alreadyChecked.indexOf(subDependency) &#x3e;= 0) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-dm.dependency.prototype.getSourcePromise" id="apidoc.element.node-dm.dependency.prototype.getSourcePromise">
+        function <span class="apidocSignatureSpan">node-dm.dependency.prototype.</span>getSourcePromise
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getSourcePromise = function () {
+  return this._sourcePromise;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* @returns {Promise}
+*/
+Dependency.prototype.getDependencies = function () {
+ return Promise.all(
+   this.getDependencyNames().map(function (name) {
+     var dependency = this._container.get(name);
+     return dependency
+       .<span class="apidocCodeKeywordSpan">getSourcePromise</span>()
+       .then(function () { return dependency; });
+   }.bind(this))
+ );
+};
+
+/**
+* @returns {boolean}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-dm.dependency.prototype.isResolved" id="apidoc.element.node-dm.dependency.prototype.isResolved">
+        function <span class="apidocSignatureSpan">node-dm.dependency.prototype.</span>isResolved
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isResolved = function () {
+  return this._isResolved;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    return new Promise(function (resolve, reject) {
+      this._container.resolve(dependencyNames).then(resolve, reject);
+
+      setTimeout(
+        function () {
+var unresolvedNames = this._container
+  .getAll()
+  .filter(function (dependency) { return !dependency.<span class="apidocCodeKeywordSpan">isResolved</span>(); })
+  .map(function (dependency) { return dependency.getName(); });
+
+if (unresolvedNames.length === 1) {
+  reject(new Error(
+    &#x27;Dependency &#x22;&#x27; +
+    unresolvedNames[0] +
+    &#x27;&#x22; was not resolved in &#x27; +
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-dm.dependency.prototype.provide" id="apidoc.element.node-dm.dependency.prototype.provide">
+        function <span class="apidocSignatureSpan">node-dm.dependency.prototype.</span>provide
+        <span class="apidocSignatureSpan">(type, value, dependencyNames)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">provide = function (type, value, dependencyNames) {
+  if (this._isResolved) {
+    throw new Error(&#x27;Dependency &#x22;&#x27; + this._name + &#x27;&#x22; was already provided&#x27;);
+  }
+
+  this._isResolved = true;
+
+  this._type = type;
+
+  if (type !== &#x27;value&#x27; &#x26;&#x26; dependencyNames) {
+    this._depends = dependencyNames;
+  }
+
+  this._resolve(value);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+/*
+ * you can also specify dependencies here directly without $depends:
+ * dm.class(&#x27;app&#x27;, App, [&#x27;db&#x27;, &#x27;config&#x27;]);
+ */
+
+/*
+ * full provide method looks like this ($depends cannot be used here):
+ * dm.<span class="apidocCodeKeywordSpan">provide</span>(&#x27;app&#x27;, &#x27;class&#x27;, App, [&#x27;db&#x27;, &#x27;config&#
+x27;]);
+ */
+
+/*
+ * bootstrap dependency tree - calling dm.run() is needed to instatiate
+ * the root dependency, which nobody depends upon
+ */
+dm.run(&#x27;app&#x27;)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-dm.dependency.prototype.resolve" id="apidoc.element.node-dm.dependency.prototype.resolve">
+        function <span class="apidocSignatureSpan">node-dm.dependency.prototype.</span>resolve
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">resolve = function () {
+  if (!this._instantiatedPromise) {
+    this._instantiatedPromise = this._getInstantiatedPromise();
+  }
+
+  return this._instantiatedPromise;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+dm.class(&#x27;parser&#x27;, Parser);
+```
+
+you can also just request dependencies anywhere in the code like this:
+
+```js
+dm.<span class="apidocCodeKeywordSpan">resolve</span>([&#x27;db&#x27;, &#x27;config&#x27;, &#x27;pi&#x27;])
+	.then(function(result){
+		/* result is an array of dependencies */
+		var db = result[0],
+			config = result[1],
+			pi = result[2];
+	});
+```
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-dm.manager" id="apidoc.module.node-dm.manager">module node-dm.manager</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-dm.manager.manager" id="apidoc.element.node-dm.manager.manager">
+        function <span class="apidocSignatureSpan">node-dm.</span>manager
+        <span class="apidocSignatureSpan">(container)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Manager(container) {
+  this._container = container;
+  this._config = {
+    dependencyTimeout: 2500
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-dm.manager.prototype" id="apidoc.module.node-dm.manager.prototype">module node-dm.manager.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-dm.manager.prototype.class" id="apidoc.element.node-dm.manager.prototype.class">
+        function <span class="apidocSignatureSpan">node-dm.manager.prototype.</span>class
+        <span class="apidocSignatureSpan">(name, constructor, dependencyNames)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class = function (name, constructor, dependencyNames) {
+  if (dependencyNames === undefined) {
+    dependencyNames = constructor.$depends;
+  }
+
+  this.provide(name, &#x27;class&#x27;, constructor, dependencyNames);
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	this.config = config;
+}
+
+/* define what dependencies your resource needs */
+App.$depends = [&#x27;db&#x27;, &#x27;config&#x27;];
+
+/* provide your resource as a class */
+dm.<span class="apidocCodeKeywordSpan">class</span>(&#x27;app&#x27;, App);
+
+/*
+ * you can also specify dependencies here directly without $depends:
+ * dm.class(&#x27;app&#x27;, App, [&#x27;db&#x27;, &#x27;config&#x27;]);
+ */
+
+/*
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-dm.manager.prototype.config" id="apidoc.element.node-dm.manager.prototype.config">
+        function <span class="apidocSignatureSpan">node-dm.manager.prototype.</span>config
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">config = function (config) {
+  for (var i in config) {
+    if (config.hasOwnProperty(i)) {
+      this._config[i] = config[i];
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+optional config:
+```js
+/*
+ * will reject dependencies that were not resolved after a period of time
+ * (2.5s is the default value, set to `false` to disable)
+ */
+dm.<span class="apidocCodeKeywordSpan">config</span>({ dependencyTimeout: 2500 });
+```
+
+Short demo
+----------
+
+app.js
+```js
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-dm.manager.prototype.factory" id="apidoc.element.node-dm.manager.prototype.factory">
+        function <span class="apidocSignatureSpan">node-dm.manager.prototype.</span>factory
+        <span class="apidocSignatureSpan">(name, factory, dependencyNames)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">factory = function (name, factory, dependencyNames) {
+  if (dependencyNames === undefined) {
+    dependencyNames = factory.$depends;
+  }
+
+  this.provide(name, &#x27;factory&#x27;, factory, dependencyNames);
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+connectToDb.$depends = [&#x27;config&#x27;];
+
+/*
+ * provide your resource as a factory function, that returns what you need
+ * (or the promise of that)
+ */
+dm.<span class="apidocCodeKeywordSpan">factory</span>(&#x27;db&#x27;, connectToDb);
+```
+
+config.js
+```js
+var dm = require(&#x27;node-dm&#x27;);
+
+var config = {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-dm.manager.prototype.object" id="apidoc.element.node-dm.manager.prototype.object">
+        function <span class="apidocSignatureSpan">node-dm.manager.prototype.</span>object
+        <span class="apidocSignatureSpan">(dependencyNames)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">object = function (dependencyNames) {
+  var obj = {};
+
+  Array.prototype.slice.call(arguments).forEach(function (key) {
+    obj[key] = true;
+  });
+
+  return obj;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	config: true,
+	db: true,
+	router: true
+};
+
+/*
+ * or you can use shorthand like this:
+ * Parser.$depends = dm.<span class="apidocCodeKeywordSpan">object</span>(&#x27;config&#x27;, &#x27;db&#x27;, &#x27;router&#x27;);
+ */
+
+dm.class(&#x27;parser&#x27;, Parser);
+```
+
+you can also just request dependencies anywhere in the code like this:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-dm.manager.prototype.provide" id="apidoc.element.node-dm.manager.prototype.provide">
+        function <span class="apidocSignatureSpan">node-dm.manager.prototype.</span>provide
+        <span class="apidocSignatureSpan">(name, type, value, dependencyNames)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">provide = function (name, type, value, dependencyNames) {
+  this._container.get(name).provide(type, value, dependencyNames);
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+/*
+ * you can also specify dependencies here directly without $depends:
+ * dm.class(&#x27;app&#x27;, App, [&#x27;db&#x27;, &#x27;config&#x27;]);
+ */
+
+/*
+ * full provide method looks like this ($depends cannot be used here):
+ * dm.<span class="apidocCodeKeywordSpan">provide</span>(&#x27;app&#x27;, &#x27;class&#x27;, App, [&#x27;db&#x27;, &#x27;config&#
+x27;]);
+ */
+
+/*
+ * bootstrap dependency tree - calling dm.run() is needed to instatiate
+ * the root dependency, which nobody depends upon
+ */
+dm.run(&#x27;app&#x27;)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-dm.manager.prototype.resolve" id="apidoc.element.node-dm.manager.prototype.resolve">
+        function <span class="apidocSignatureSpan">node-dm.manager.prototype.</span>resolve
+        <span class="apidocSignatureSpan">(dependencyNames)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">resolve = function (dependencyNames) {
+  if (!this._config.dependencyTimeout) {
+    return this._container.resolve(dependencyNames);
+  }
+  else {
+    return new Promise(function (resolve, reject) {
+      this._container.resolve(dependencyNames).then(resolve, reject);
+
+      setTimeout(
+        function () {
+          var unresolvedNames = this._container
+            .getAll()
+            .filter(function (dependency) { return !dependency.isResolved(); })
+            .map(function (dependency) { return dependency.getName(); });
+
+          if (unresolvedNames.length === 1) {
+            reject(new Error(
+              &#x27;Dependency &#x22;&#x27; +
+              unresolvedNames[0] +
+              &#x27;&#x22; was not resolved in &#x27; +
+              this._config.dependencyTimeout +
+              &#x27;ms&#x27;
+            ));
+          }
+          else if (unresolvedNames.length &#x3e; 1) {
+            unresolvedNames = unresolvedNames.map(function (name) { return &#x27;&#x22;&#x27; + name + &#x27;&#x22;&#x27;; });
+            reject(new Error(
+              &#x27;Dependencies &#x22;&#x27; +
+              unresolvedNames.join(&#x27;, &#x27;) +
+              &#x27;&#x22; were not resolved in &#x27; +
+              this._config.dependencyTimeout +
+              &#x27;ms&#x27;
+            ));
+          }
+        }.bind(this),
+        this._config.dependencyTimeout
+      );
+    }.bind(this));
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+dm.class(&#x27;parser&#x27;, Parser);
+```
+
+you can also just request dependencies anywhere in the code like this:
+
+```js
+dm.<span class="apidocCodeKeywordSpan">resolve</span>([&#x27;db&#x27;, &#x27;config&#x27;, &#x27;pi&#x27;])
+	.then(function(result){
+		/* result is an array of dependencies */
+		var db = result[0],
+			config = result[1],
+			pi = result[2];
+	});
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-dm.manager.prototype.run" id="apidoc.element.node-dm.manager.prototype.run">
+        function <span class="apidocSignatureSpan">node-dm.manager.prototype.</span>run
+        <span class="apidocSignatureSpan">(dependencyName)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">run = function (dependencyName) {
+  return this.resolve([dependencyName]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+/*
+ * full provide method looks like this ($depends cannot be used here):
+ * dm.provide(&#x27;app&#x27;, &#x27;class&#x27;, App, [&#x27;db&#x27;, &#x27;config&#x27;]);
+ */
+
+/*
+ * bootstrap dependency tree - calling dm.<span class="apidocCodeKeywordSpan">run</span>() is needed to instatiate
+ * the root dependency, which nobody depends upon
+ */
+dm.run(&#x27;app&#x27;)
+.catch(function(err){
+  /*
+   * because internally node dm uses promises, all the rejections/exceptions
+   * eventually can be caught on the topmost node of dependency tree
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-dm.manager.prototype.value" id="apidoc.element.node-dm.manager.prototype.value">
+        function <span class="apidocSignatureSpan">node-dm.manager.prototype.</span>value
+        <span class="apidocSignatureSpan">(name, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">value = function (name, value) {
+  this.provide(name, &#x27;value&#x27;, value, []);
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	mongo: &#x27;mongodb://localhost:27017/mydb&#x27;
+};
+
+/*
+ * this resource is a simple value and does not need instantiation;
+ * can also be a promise
+ */
+dm.<span class="apidocCodeKeywordSpan">value</span>(&#x27;config&#x27;, config);
+```
+
+Api
+---
+
+define your resources:
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
